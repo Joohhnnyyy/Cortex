@@ -7,6 +7,31 @@ A production-ready AI-powered e‑commerce operations and growth assistant. The 
 - Backend: Flask in `openai_purelybackend/`
 - Deployments: Vercel (frontend), Render (backend)
 
+## Topics
+
+- An AI-powered e-commerce hub that integrates with any e-commerce backend
+- Automates end-to-end business operations and surfaces insights in a dashboard
+- Prototype designed to plug into existing store backends using HTTP APIs and webhooks
+- Uses LLMs for assistant and insights; API-key based model provider integration
+
+### Feature Overview
+
+- Sales Management
+- Financial Management
+- CA work and ITR filing support
+- Help in tax deduction
+- Automated inventory management with email triggers
+- Customer management
+- Competitor analysis via web scraping
+- E-commerce store/website growth analysis
+- Financial and compliance automation
+- Website health trigger
+- Complete About Us section
+- Day-wise overview on the homepage
+- Automated invoice generation
+- GenAI chatbot to assist the owner
+- All features reflected in an integrated dashboard
+
 ## Architecture
 
 - Frontend
@@ -132,6 +157,10 @@ vercel --prod --yes
 vercel alias set <deployment>.vercel.app cortex-projects.vercel.app
 ```
 
+## Model Provider
+
+- The backend is prepared to integrate with API-key based model providers. The recommended path is to use OpenAI models with the official API. Add your keys as environment variables and wire model calls inside backend handlers (for example, in `app.py`).
+
 ## Environment Variables
 
 - Frontend
@@ -179,4 +208,4 @@ CORTEX/
 
 ## License
 
-This project’s license is not set. Add a license file if needed.
+This project is licensed under the MIT License. See `LICENSE` for details.
