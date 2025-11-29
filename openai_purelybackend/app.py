@@ -256,7 +256,14 @@ def ai_chatbot_route():
     }
     
     if gemini_assistant:
-        response_text = gemini_assistant.chatbot_query(user_query, business_context)
+        try:
+            response_text = gemini_assistant.chatbot_query(user_query, business_context)
+            if isinstance(response_text, str) and response_text.strip().startswith("Sorry, I'm having trouble"):
+                logger.warning("Gemini returned fallback apology; switching to demo response")
+                response_text = get_demo_chatbot_response(user_query)
+        except Exception as e:
+            logger.exception(f"Gemini chatbot query error: {e}")
+            response_text = get_demo_chatbot_response(user_query)
     else:
         response_text = get_demo_chatbot_response(user_query)
     
